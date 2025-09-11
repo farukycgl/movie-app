@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center h-30 px-5 bg-gray-600">
+    <div className="flex items-center h-30 px-5 bg-[#B6B09F]">
       <div className="flex items-center justify-start gap-2 flex-1">
         <Link to="/" className="flex justify-center items-center gap-2 text-5xl text-red-950">
           <GiFilmProjector size={70} />

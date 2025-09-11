@@ -1,9 +1,10 @@
 import React from 'react'
+import Genre from './Genre'
 
 const SideBar = () => {
   return (
     <div>
-      SideBar
+      <Genre/>
     </div>
   )
 }
