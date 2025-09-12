@@ -8,7 +8,7 @@ const initialState = {
 
 export const getGenre = createAsyncThunk("getGenres", async () => {
   const res = await axios.get(`${API_GENRE}?api_key=${API_KEY}`);
-  console.log(res.data);
+  
   return res.data.genres;
 });
 

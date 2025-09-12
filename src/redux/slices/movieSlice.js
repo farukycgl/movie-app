@@ -4,6 +4,7 @@ import { API_KEY, API_MOVIE_LIST } from "../../api";
 
 const initialState = {
   movies: [],
+  isLoading: false,
 };
 
 export const getMovieList = createAsyncThunk("getMovieList", async () => {
@@ -17,7 +18,11 @@ export const movieListSlice = createSlice({
   reducers: {}, //HTTP istekeleri yoksa burası kullanılır.
   extraReducers: (builder) => {
     // HTTP request olursa burası kullanılır.
+    builder.addCase(getMovieList.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(getMovieList.fulfilled, (state, action) => {
+      state.isLoading = false;
       state.movies = action.payload;
     });
   },

@@ -14,7 +14,7 @@ const Genre = () => {
     <div className="">
       <ul className="flex flex-col items-center justify-center gap-5 h-screen text-amber-400">
         {genres &&
-          genres.map((genre, index) => <li key={genre.id}>{genre.name}</li>)}
+          genres.map((genre, index) => <li className="cursor-pointer" key={genre.id}>{genre.name}</li>)}
       </ul>
     </div>
   );

@@ -14,7 +14,7 @@ const Home = () => {
       </div>
 
       <div className="mx-50">
-        <div className="grid grid-cols-4 w-full h-screen gap-3">
+        <div className="grid grid-cols-4 w-full gap-3">
           <div className="col-span-3 bg-gray-200">
             <NavbarCard />
             <MovieList/>
