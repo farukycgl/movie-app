@@ -1,12 +1,13 @@
-import React from 'react'
-import Genre from './Genre'
+import React, { useState } from "react";
+import Genre from "./Genre";
 
-const SideBar = () => {
+const SideBar = ({setSelectedGenre}) => {
+
   return (
     <div>
-      <Genre/>
+      <Genre setSelectedGenre={setSelectedGenre} />
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenre } from "../../redux/slices/genreSlice";
 
-const Genre = () => {
+const Genre = ({ setSelectedGenre }) => {
   const { genres } = useSelector((store) => store.genre);
   const dispatch = useDispatch();
+
+  const [activeGenre, setActiveGenre] = useState(null); //tiklanan tür belirgin olması için.
+
+  const handleActiveGenre = (genre) => {
+    setSelectedGenre(genre);
+    setActiveGenre(genre.id);
+  };
 
   useEffect(() => {
     dispatch(getGenre());
@@ -14,7 +21,17 @@ const Genre = () => {
     <div className="">
       <ul className="flex flex-col items-center justify-center gap-5 h-screen text-amber-400">
         {genres &&
-          genres.map((genre, index) => <li className="cursor-pointer" key={genre.id}>{genre.name}</li>)}
+          genres.map((genre) => (
+            <li
+              className={`cursor-pointer hover:scale-110 transition-transform duration-200 ${
+                activeGenre === genre.id ? "text-red-900 text-3xl" : null
+              }`}
+              onClick={() => handleActiveGenre(genre)}
+              key={genre.id}
+            >
+              {genre.name}
+            </li>
+          ))}
       </ul>
     </div>
   );

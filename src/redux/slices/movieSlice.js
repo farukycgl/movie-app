@@ -4,13 +4,24 @@ import { API_KEY, API_MOVIE_LIST } from "../../api";
 
 const initialState = {
   movies: [],
-  isLoading: false,
+  status: "idle",
+  error: null,
 };
 
 export const getMovieList = createAsyncThunk("getMovieList", async () => {
   const res = await axios.get(`${API_MOVIE_LIST}?api_key=${API_KEY}`);
   return res.data.results;
 });
+
+export const getMovieListByGenre = createAsyncThunk(
+  "getMovieListByGenre",
+  async (id) => {
+    const res = await axios.get(
+      `${API_MOVIE_LIST}?api_key=${API_KEY}&with_genres=${id}`
+    );
+    return res.data.results;
+  }
+);
 
 export const movieListSlice = createSlice({
   name: "movieList",
@@ -19,10 +30,17 @@ export const movieListSlice = createSlice({
   extraReducers: (builder) => {
     // HTTP request olursa burası kullanılır.
     builder.addCase(getMovieList.pending, (state, action) => {
-      state.isLoading = true;
+      state.status = action.meta.requestStatus;
     });
     builder.addCase(getMovieList.fulfilled, (state, action) => {
-      state.isLoading = false;
+      state.movies = action.payload;
+      state.status = action.meta.requestStatus;
+    });
+    builder.addCase(getMovieList.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.status = action.meta.requestStatus;
+    });
+    builder.addCase(getMovieListByGenre.fulfilled, (state, action) => {
       state.movies = action.payload;
     });
   },
