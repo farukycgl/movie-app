@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieList, getMovieListByGenre } from "../../redux/slices/movieSlice";
+import {
+  getMovieList,
+  getMovieListByGenre,
+} from "../../redux/slices/movieSlice";
 import MovieCard from "./MovieCard";
 import Loading from "../Loading";
 import LoadingError from "../LoadingError";
 
 const MovieList = ({ selectedGenre }) => {
-  console.log(selectedGenre);
   const { movies, status, error } = useSelector((store) => store.movieList);
   const dispatch = useDispatch();
 
@@ -20,6 +22,7 @@ const MovieList = ({ selectedGenre }) => {
 
   return (
     <div className="">
+      <h1 className=" flex justify-center items-center pb-5 text-5xl">{selectedGenre ? selectedGenre.name : 'Home Page'}</h1>
       <ul
         className={`grid gap-5 justify-items-center ${
           status === "rejected" ? "grid-cols-1" : "grid-cols-3"

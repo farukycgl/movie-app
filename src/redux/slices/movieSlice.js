@@ -28,7 +28,7 @@ export const movieListSlice = createSlice({
   initialState,
   reducers: {}, //HTTP istekeleri yoksa burası kullanılır.
   extraReducers: (builder) => {
-    // HTTP request olursa burası kullanılır.
+    // HTTP request varsa burası kullanılır.
     builder.addCase(getMovieList.pending, (state, action) => {
       state.status = action.meta.requestStatus;
     });
@@ -40,8 +40,16 @@ export const movieListSlice = createSlice({
       state.error = action.error.message;
       state.status = action.meta.requestStatus;
     });
+    builder.addCase(getMovieListByGenre.pending, (state, action) => {
+      state.status = action.meta.requestStatus;
+    });
     builder.addCase(getMovieListByGenre.fulfilled, (state, action) => {
       state.movies = action.payload;
+      state.status = action.meta.requestStatus;
+    });
+    builder.addCase(getMovieListByGenre.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.status = action.meta.requestStatus;
     });
   },
 });
