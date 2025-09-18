@@ -5,6 +5,7 @@ import Layout from "./layout/Layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieDetail from "./pages/MovieDetail";
+import FavoriteMovieList from "./pages/FavoriteMovieList";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<MovieDetail/>} />
+          <Route path="/my-list" element={<FavoriteMovieList/>} />
         </Routes>
       </Layout>
     </div>

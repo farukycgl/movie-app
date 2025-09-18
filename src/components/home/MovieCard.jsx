@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { API_MOVIE_IMG } from "../../api";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, className }) => {
   const { id, title, poster_path, vote_average } = movie;
 
   return (
@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => {
           src={`${API_MOVIE_IMG}/${poster_path}`}
           alt={title}
         />
-        <div className="text-center text-sm font-semibold">{title}</div>
+        <div className={`text-center text-sm font-semibold ${className}`}>{title}</div>
       </div>
     </Link>
   );

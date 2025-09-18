@@ -1,13 +1,17 @@
 import React from "react";
 import { GiFilmProjector } from "react-icons/gi";
 import { BiSearch } from "react-icons/bi";
+import { FaHeart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="flex items-center h-30 px-5 bg-[#B6B09F]">
       <div className="flex items-center justify-start gap-2 flex-1">
-        <Link to="/" className="flex justify-center items-center gap-2 text-5xl text-red-950">
+        <Link
+          to="/"
+          className="flex justify-center items-center gap-2 text-5xl text-red-950"
+        >
           <GiFilmProjector size={70} />
           myFavie
         </Link>
@@ -49,6 +53,9 @@ const Navbar = () => {
               Kayıt ol
             </Link>
           </div>
+          <Link to="/my-list" className="cursor-pointer">
+            <FaHeart size={30} />
+          </Link>
         </div>
       </div>
     </div>
