@@ -1,8 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import Slider from "react-slick";
+import { API_KEY, API_MOVIE_IMG, API_MOVIE_POPULAR } from "../../api";
 
 const SliderHero = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${API_MOVIE_POPULAR}?api_key=${API_KEY}`)
+      .then((res) => {
+        setMovies(res.data.results.slice(0, 3));
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   var settings = {
     dots: true,
     infinite: true,
@@ -12,30 +25,26 @@ const SliderHero = () => {
   };
 
   return (
-    <div className="h-[500px]">
+    <div className="relative h-[500px]">
       <Slider {...settings}>
-        <div className="h-[500px] w-full flex items-center justify-center">
-          <img
-            className="h-full w-full object-cover"
-            alt=""
-            src="https://plus.unsplash.com/premium_photo-1682125771198-f7cbed7cb868?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmlsbXxlbnwwfHwwfHx8MA%3D%3D"
-          />
-        </div>
-        <div className="h-[500px] w-full flex items-center justify-center overflow-hidden">
-          <img
-            className="h-full w-full object-cover"
-            src="https://images.pexels.com/photos/918281/pexels-photo-918281.jpeg?cs=srgb&dl=pexels-obregonia-d-toretto-325418-918281.jpg&fm=jpg"
-            alt=""
-          />
-        </div>
-        <div className="h-[500px] w-full flex items-center justify-center overflow-hidden">
-          <img
-            className="h-full w-full object-cover"
-            src="https://cdn.pixabay.com/photo/2016/01/22/08/20/film-1155439_1280.jpg"
-            alt=""
-          />
-        </div>
+        {movies.map((movie) => (
+          <div
+            key={movie.id}
+            className="relative h-[500px] w-full flex items-center justify-center"
+          >
+            <img
+              className="h-full w-full object-cover"
+              src={`${API_MOVIE_IMG}/${movie.backdrop_path}`}
+              alt={movie.title}
+            />
+            <div className="absolute bottom-10 left-10 bg-opacity-50 bg-black text-[#E8DFCA] p-2 rounded">
+              <h2 className="text-xl font-bold">{movie.title}</h2>
+            </div>
+          </div>
+        ))}
       </Slider>
+      {/* Slider'in alt dive gecerkenki yumuşaklik ayari için */}
+      <div className="absolute bottom-0 left-0 w-full h-5 bg-gradient-to-t from-gray-200 to-transparent" />
     </div>
   );
 };

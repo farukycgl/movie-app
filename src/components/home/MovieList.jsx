@@ -22,21 +22,27 @@ const MovieList = ({ selectedGenre }) => {
 
   return (
     <div className="">
-      <h1 className=" flex justify-center items-center pb-5 text-5xl">{selectedGenre ? selectedGenre.name : 'Home Page'}</h1>
-      <ul
-        className={`grid gap-5 justify-items-center ${
-          status === "rejected" ? "grid-cols-1" : "grid-cols-3"
-        }`}
-      >
-        {status === "pending" ? (
-          <Loading />
-        ) : status === "fulfilled" ? (
-          movies &&
-          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-        ) : status === "rejected" ? (
-          <LoadingError error={error} />
-        ) : null}
-      </ul>
+      <div>
+        <h1 className="flex pl-30 pb-5 text-5xl text-[#382039]">
+          {selectedGenre ? selectedGenre.name : "Discover"}
+        </h1>
+      </div>
+      <div className="ml-50 mr-5">
+        <ul
+          className={`grid gap-5 justify-items-center ${
+            status === "rejected" ? "grid-cols-1" : "grid-cols-3"
+          }`}
+        >
+          {status === "pending" ? (
+            <Loading />
+          ) : status === "fulfilled" ? (
+            movies &&
+            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+          ) : status === "rejected" ? (
+            <LoadingError error={error} />
+          ) : null}
+        </ul>
+      </div>
     </div>
   );
 };

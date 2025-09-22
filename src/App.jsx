@@ -9,12 +9,12 @@ import FavoriteMovieList from "./pages/FavoriteMovieList";
 
 function App() {
   return (
-    <div className="w-full h-full bg-gray-100">
+    <div className="w-full bg-gray-100">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<MovieDetail/>} />
-          <Route path="/my-list" element={<FavoriteMovieList/>} />
+          <Route path="/:id" element={<MovieDetail />} />
+          <Route path="/my-list" element={<FavoriteMovieList />} />
         </Routes>
       </Layout>
     </div>
