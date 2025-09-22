@@ -25,12 +25,12 @@ const SliderHero = () => {
   };
 
   return (
-    <div className="relative h-[500px]">
+    <div className="relative h-[600px]">
       <Slider {...settings}>
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="relative h-[500px] w-full flex items-center justify-center"
+            className="relative h-[600px] w-full flex items-center justify-center"
           >
             <img
               className="h-full w-full object-cover"

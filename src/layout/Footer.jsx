@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex items-center justify-start gap-2 font-pacifico">
           <Link
             to="/"
-            className="flex items-center gap-2 text-5xl text-gray-300"
+            className="flex items-center gap-2 text-[40px] text-gray-300"
           >
             <GiFilmProjector size={70} className="text-gray-300" />
             myFavie
