@@ -19,12 +19,14 @@ const Genre = ({ setSelectedGenre }) => {
 
   return (
     <div className="">
-      <ul className="flex flex-col items-center justify-center gap-5 text-[#382039]">
+      <ul className="flex flex-row md:flex-col items-center justify-center gap-3 md:gap-5 text-sm sm:text-base md:text-lg text-[#382039]">
         {genres &&
           genres.map((genre) => (
             <li
               className={`cursor-pointer hover:scale-110 transition-transform duration-200 ${
-                activeGenre === genre.id ? "text-red-900 text-3xl" : null
+                activeGenre === genre.id
+                  ? "text-red-900 text-lg md:text-3xl"
+                  : null
               }`}
               onClick={() => handleActiveGenre(genre)}
               key={genre.id}

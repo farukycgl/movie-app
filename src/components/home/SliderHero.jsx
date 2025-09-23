@@ -25,20 +25,20 @@ const SliderHero = () => {
   };
 
   return (
-    <div className="relative h-[600px]">
+    <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
       <Slider {...settings}>
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="relative h-[600px] w-full flex items-center justify-center"
+            className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center"
           >
             <img
               className="h-full w-full object-cover"
               src={`${API_MOVIE_IMG}/${movie.backdrop_path}`}
               alt={movie.title}
             />
-            <div className="absolute bottom-10 left-10 bg-opacity-50 bg-black text-[#E8DFCA] p-2 rounded">
-              <h2 className="text-xl font-bold">{movie.title}</h2>
+            <div className="absolute bottom-5 left-5 sm:bottom-10 sm:left-10 bg-opacity-50 bg-black text-[#E8DFCA] p-2 rounded">
+              <h2 className="text-sm sm:text-sm md:text-xl lg:text-2xl font-bold">{movie.title}</h2>
             </div>
           </div>
         ))}

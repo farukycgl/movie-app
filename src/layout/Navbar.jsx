@@ -36,7 +36,7 @@ const Navbar = ({onSearch}) => {
       </div>
 
       {/* Navbar orta kolon */}
-      <div className="flex-1 flex justify-center">
+      <div className="hidden md:flex flex-1 justify-center">
         <ul className="flex justify-center gap-5 text-2xl ">
           <li>
             <Link to="/">Films</Link>

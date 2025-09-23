@@ -21,16 +21,16 @@ const MovieList = ({ selectedGenre }) => {
   }, [selectedGenre, dispatch]);
 
   return (
-    <div className="">
+    <div className="px-3 sm:px-5 md:px-10">
       <div>
-        <h1 className="flex pl-30 pb-5 text-5xl text-[#382039]">
+        <h1 className="pb-5 text-2xl sm:text-3xl md:text-5xl text-[#382039]">
           {selectedGenre ? selectedGenre.name : "Discover"}
         </h1>
       </div>
-      <div className="ml-50 mr-5">
+      <div className="md:ml-50 md:mr-5">
         <ul
           className={`grid gap-5 justify-items-center ${
-            status === "rejected" ? "grid-cols-1" : "grid-cols-3"
+            status === "rejected" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
           }`}
         >
           {status === "pending" ? (

@@ -13,12 +13,17 @@ const Home = () => {
       </div>
 
       <div className="">
-        <div className="grid grid-cols-4 w-full gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 px-3 sm:px-5 md:px-10 w-full gap-2">
+          {/* Sidebar - Mobil */}
+          <div className="md:hidden flex justify-end">
+            <SideBar setSelectedGenre={setSelectedGenre} />
+          </div>
           <div className="col-span-3 bg-gray-200">
             <MovieList selectedGenre={selectedGenre} />
           </div>
 
-          <div className="mr-20 mt-17">
+          {/* Sidebar - Desktop */}
+          <div className="hidden md:block md:mr-20 md:mt-16">
             <SideBar setSelectedGenre={setSelectedGenre} />
           </div>
         </div>
