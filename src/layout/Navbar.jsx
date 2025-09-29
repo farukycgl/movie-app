@@ -27,12 +27,12 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex items-center h-12 md:h-20 px-5 bg-[#E8DFCA] fixed top-0 left-0 w-full z-50">
+    <div className="flex items-center h-15 md:h-20 px-5 bg-[#E8DFCA] fixed top-0 left-0 w-full z-50">
       {/* Navbar sol kolon */}
-      <div className="flex items-center justify-start gap-1 md:gap-2 flex-1">
+      <div className="flex items-center justify-start flex-1">
         <Link
           to="/"
-          className="flex justify-center items-center gap-2 text-[25px] md:text-[40px] text-red-950 font-pacifico"
+          className="flex justify-center items-center gap-1 md:gap-2 text-[25px] md:text-[40px] text-red-950 font-pacifico"
         >
           <GiFilmProjector className="text-[30px] md:text-[70px]" />
           myFavie
@@ -91,7 +91,7 @@ const Navbar = ({ onSearch }) => {
           >
             <input
               type="text"
-              className="outline-none bg-white py-2 rounded-l-lg"
+              className="outline-none bg-white py-2 pl-2 rounded-l-lg"
               placeholder="search..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
