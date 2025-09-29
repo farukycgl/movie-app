@@ -19,7 +19,7 @@ const Genre = ({ setSelectedGenre }) => {
 
   return (
     <div className="">
-      <ul className="flex flex-row md:flex-col items-center justify-center gap-3 md:gap-5 text-sm sm:text-base md:text-lg text-[#382039]">
+      <ul className="flex flex-col items-center justify-center gap-3 md:gap-5 text-sm sm:text-base md:text-lg text-[#382039]">
         {genres &&
           genres.map((genre) => (
             <li

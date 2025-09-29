@@ -58,7 +58,7 @@ const Navbar = ({ onSearch }) => {
       <div className="flex flex-1 items-center justify-end gap-3 md:gap-5">
         {/* Arama kutusu - Desktop */}
         <form
-          className="hidden md:flex rounded-4xl border-none p-2 bg-amber-50"
+          className="hidden md:flex rounded-4xl border-none p-2 bg-white"
           onSubmit={handleSubmit}
         >
           <input
