@@ -7,7 +7,7 @@ const MovieCard = ({ movie, className }) => {
 
   return (
     <Link to={`/${id}`}>
-      <div className="relative flex flex-col cursor-pointer w-70 sm:w-85 md:w-80 lg:w-72 hover:scale-105 transition-transform duration-300">
+      <div className="relative flex flex-col w-full cursor-pointer hover:scale-105 transition-transform duration-300">
         <img
           className="w-full h-auto object-cover rounded-xl md:rounded-2xl"
           src={`${API_MOVIE_IMG}/${poster_path}`}

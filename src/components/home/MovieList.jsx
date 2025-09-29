@@ -21,23 +21,23 @@ const MovieList = ({ selectedGenre }) => {
   }, [selectedGenre, dispatch]);
 
   return (
-    <div className="px-3 sm:px-5 md:px-10">
+    <div className="">
       <div>
         <h1 className="pb-5 text-2xl sm:text-3xl md:text-5xl text-[#382039]">
           {selectedGenre ? selectedGenre.name : "Discover"}
         </h1>
       </div>
-      <div className="md:ml-50 md:mr-5">
+      <div className="">
         <ul
-          className={`grid gap-5 justify-items-center ${
-            status === "rejected" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+          className={`grid gap-5  ${
+            status === "rejected" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           }`}
         >
           {status === "pending" ? (
             <Loading />
           ) : status === "fulfilled" ? (
             movies &&
-            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+            movies.map((movie) => (<li><MovieCard key={movie.id} movie={movie} /></li> ))
           ) : status === "rejected" ? (
             <LoadingError error={error} />
           ) : null}
