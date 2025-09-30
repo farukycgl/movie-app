@@ -7,7 +7,7 @@ const FavoriteMovieList = () => {
 
   return (
     <div className="bg-zinc-900 min-h-screen">
-      <div className="pt-20 pl-20">
+      <div className="flex justify-center md:justify-start pt-20 md:pl-20">
         <h1 className="text-white text-4xl">Favorites</h1>
       </div>
       <ul className="flex flex-wrap justify-center gap-5 pt-10 pb-5 px-5 md:px-20">

@@ -11,22 +11,22 @@ const SideBar = ({ setSelectedGenre }) => {
     <div className="relative">
       <div className="md:hidden flex flex-col items-center">
         <div>
-          <p>Select Genre</p>
+          <p className="text-[#88304E] text-shadow-xs font-bold">Select Genre</p>
         </div>
         {/* Hamburger menu - Mobil */}
         <div className="md:hidden flex justify-end">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-2xl text-[#382039] cursor-pointer"
+            className="cursor-pointer"
           >
-            <HiMenu />
+            <HiMenu className="text-[#88304E] text-2xl"/>
           </button>
         </div>
       </div>
 
       {/* Dropdown menu - Mobil */}
       {isOpen && (
-        <div className="absolute right-0 bg-white shadow-md rounded-lg mt-2 z-50">
+        <div className="absolute right-0 bg-[#88304E] shadow-md rounded-lg mt-2 z-50">
           <ul className="flex flex-col">
             {genres &&
               genres.map((genre) => (
