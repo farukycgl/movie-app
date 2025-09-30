@@ -23,16 +23,18 @@ const MovieDetailCard = ({ movieDetail }) => {
       className="w-screen min-h-screen bg-cover bg-center relative"
       style={{ backgroundImage: `url(${API_MOVIE_IMG}/${backdrop_path})` }}
     >
-      <div className="bg-black/80 min-h-screen text-amber-100">
+      <div className="flex flex-col bg-black/80 min-h-screen text-amber-100">
         {/* Baslik */}
-        <header className="flex justify-between px-80 pt-10">
-          <h1 className="text-3xl font-bold">{title}</h1>
-          <FavoriteButton movie={movieDetail} />
+        <header className="flex flex-col items-center md:flex-row md:justify-between px-5 md:px-80 pt-20 md:pt-10">
+          <h1 className="text-2xl md:text-3xl font-bold">{title}</h1>
+          <span className="hidden md:block">
+            <FavoriteButton movie={movieDetail} />
+          </span>
         </header>
 
-        <main className="flex gap-10 justify-center p-20">
-          {/* Sol taraftaki poster kismi */}
-          <div className="w-1/4 flex justify-center">
+        <main className="flex flex-col items-center md:flex-row gap-5 md:gap-10 justify-center p-5 md:p-20">
+          {/* Poster kismi */}
+          <div className="w-full md:w-1/4 flex justify-center">
             <img
               className="shadow-lg rounded-2xl max-h-[500px] max-w-[350px] object-contain"
               src={`${API_MOVIE_IMG}/${poster_path}`}
@@ -40,13 +42,20 @@ const MovieDetailCard = ({ movieDetail }) => {
             />
           </div>
 
-          {/* Sag taraftaki aciklamalar */}
-          <div className="w-2/3 flex flex-col space-y-4 max-w-2xl">
-            <section className="mb-15 text-2xl text-white">
+          {/* Favori butonu - Mobil */}
+          <div className="flex justify-center">
+            <span className="md:hidden">
+              <FavoriteButton movie={movieDetail} />
+            </span>
+          </div>
+
+          {/* Aciklamalar */}
+          <div className="w-full md:w-2/3 text-lg md:text-xl flex flex-col items-center md:items-start space-y-4 max-w-2xl">
+            <section className="md:mb-15 text-lg md:text-2xl text-white">
               <p>{overview}</p>
             </section>
 
-            <section className="flex text-xl items-center">
+            <section className="flex items-center">
               <p className="flex items-center gap-2">
                 IMDB Raiting:
                 <span className="flex items-center gap-1 text-white">
@@ -56,7 +65,7 @@ const MovieDetailCard = ({ movieDetail }) => {
               </p>
             </section>
 
-            <section className="flex text-xl">
+            <section className="flex">
               <p className="flex gap-2">
                 Year:
                 <span className="flex text-white">
@@ -65,14 +74,14 @@ const MovieDetailCard = ({ movieDetail }) => {
               </p>
             </section>
 
-            <section className="flex gap-2 text-xl">
+            <section className="flex gap-2">
               <p>Genre:</p>
               <p className="flex gap-1 text-white">
                 {genres?.map((genre) => genre.name).join(", ")}
               </p>
             </section>
 
-            <section className="flex gap-2 text-xl">
+            <section className="flex gap-2 ">
               <p>Language: </p>
               <p className="text-white">
                 {spoken_languages?.map((language) => language.name).join(", ")}

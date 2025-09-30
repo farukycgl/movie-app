@@ -9,12 +9,12 @@ const SideBar = ({ setSelectedGenre }) => {
 
   return (
     <div className="relative">
-      <div className="md:hidden flex items-center">
+      <div className="md:hidden flex flex-col items-center">
         <div>
-          <p>Genre</p>
+          <p>Select Genre</p>
         </div>
         {/* Hamburger menu - Mobil */}
-        <div className="md:hidden flex justify-end p-2">
+        <div className="md:hidden flex justify-end">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-2xl text-[#382039] cursor-pointer"
