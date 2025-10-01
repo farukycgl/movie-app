@@ -40,7 +40,7 @@ const Navbar = ({ onSearch }) => {
       </div>
 
       {/* Navbar orta kolon - Desktop */}
-      <div className="hidden md:flex flex-1 justify-center">
+      <div className="hidden lg:flex flex-1 justify-center">
         <ul className="flex justify-center gap-5 text-2xl">
           <li>
             <Link to="/">Films</Link>
