@@ -1,11 +1,15 @@
-import React from "react";
+
 import { API_MOVIE_IMG } from "../../api";
 import { FaStar } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
 
-const MovieDetailCard = ({ movieDetail }) => {
+const DetailCard = ({ detail, type }) => {
+  if (!detail || Object.keys(detail).length === 0)
+    return <p className="text-center text-white">Loading...</p>;
+
   const {
     title,
+    name,
     overview,
     vote_average,
     backdrop_path,
@@ -13,9 +17,12 @@ const MovieDetailCard = ({ movieDetail }) => {
     genres,
     spoken_languages,
     release_date,
-  } = movieDetail;
+    first_air_date,
+  } = detail;
 
-  const releaseDate = new Date(release_date); //Tarihi sadece year olarak tanımladık.
+  const displayTitle = title || name;
+  const displayDate = release_date || first_air_date;
+  const releaseYear = displayDate ? new Date(displayDate).getFullYear() : "N/A"; //Tarihi sadece year olarak tanımladık.
 
   return (
     <article
@@ -26,9 +33,9 @@ const MovieDetailCard = ({ movieDetail }) => {
       <div className="flex flex-col bg-black/80 min-h-screen text-amber-100">
         {/* Baslik */}
         <header className="flex flex-col items-center md:flex-row md:justify-between px-5 md:px-80 pt-20 md:pt-10">
-          <h1 className="text-2xl md:text-3xl font-bold">{title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">{displayTitle}</h1>
           <span className="hidden md:block">
-            <FavoriteButton movie={movieDetail} />
+            <FavoriteButton movie={detail} />
           </span>
         </header>
 
@@ -38,14 +45,14 @@ const MovieDetailCard = ({ movieDetail }) => {
             <img
               className="shadow-lg rounded-2xl max-h-[500px] max-w-[350px] object-contain"
               src={`${API_MOVIE_IMG}/${poster_path}`}
-              alt={title}
+              alt={displayTitle}
             />
           </div>
 
           {/* Favori butonu - Mobil */}
           <div className="flex justify-center">
             <span className="md:hidden">
-              <FavoriteButton movie={movieDetail} />
+              <FavoriteButton movie={detail} />
             </span>
           </div>
 
@@ -68,9 +75,7 @@ const MovieDetailCard = ({ movieDetail }) => {
             <section className="flex">
               <p className="flex gap-2">
                 Year:
-                <span className="flex text-white">
-                  {releaseDate.getFullYear()}
-                </span>
+                <span className="flex text-white">{releaseYear}</span>
               </p>
             </section>
 
@@ -94,4 +99,4 @@ const MovieDetailCard = ({ movieDetail }) => {
   );
 };
 
-export default MovieDetailCard;
+export default DetailCard;

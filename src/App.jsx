@@ -4,9 +4,9 @@ import Home from "./pages/Home";
 import Layout from "./layout/Layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MovieDetail from "./pages/MovieDetail";
 import FavoriteMovieList from "./pages/FavoriteMovieList";
 import Series from "./pages/Series";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
@@ -14,7 +14,8 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<MovieDetail />} />
+          <Route path="/movie/:id" element={<Detail />} />
+          <Route path="/series/:id" element={<Detail/>}/>
           <Route path="/my-list" element={<FavoriteMovieList />} />
           <Route path="/series" element={<Series/>} />
         </Routes>

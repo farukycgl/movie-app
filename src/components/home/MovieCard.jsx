@@ -6,7 +6,7 @@ const MovieCard = ({ movie, className }) => {
   const { id, title, poster_path, vote_average } = movie;
 
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/movie/${id}`}>
       <div className="relative flex flex-col w-full cursor-pointer hover:scale-105 transition-transform duration-300">
         <img
           className="w-full h-auto object-cover rounded-xl md:rounded-2xl"

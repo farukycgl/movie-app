@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading";
 import SeriesCard from "./seriesCard";
 import LoadingError from "../LoadingError";
-import { useEffectEvent } from "react";
 import { getSeriesList } from "../../redux/slices/seriesSlice";
 
 const SeriesList = () => {
@@ -17,7 +16,7 @@ const SeriesList = () => {
   }, [dispatch]);
 
   return (
-    <div className="p-10">
+    <div className="pt-20 pb-10 px-20">
       <div className="pl-10">
         <h1 className="pb-5 text-2xl sm:text-3xl md:text-5xl text-[#382039]">
           Series

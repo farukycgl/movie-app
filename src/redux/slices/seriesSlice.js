@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API_KEY, API_TV_SERİES_LIST } from "../../api";
+import { API_KEY, API_TV_SERIES_LIST } from "../../api";
 
 const initialState = {
     series: [],
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const getSeriesList = createAsyncThunk("getSeriesList", async() => {
-    const res = await axios.get(`${API_TV_SERİES_LIST}?api_key=${API_KEY}`);
+    const res = await axios.get(`${API_TV_SERIES_LIST}?api_key=${API_KEY}`);
     return res.data.results;
 });
 
