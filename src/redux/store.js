@@ -3,6 +3,7 @@ import genreSlice from "./slices/genreSlice";
 import movieListSlice from "./slices/movieSlice";
 import movieDetailSlice from "./slices/movieDetailSlice";
 import favoriteListSlice from "./slices/favoriteListSlice";
+import seriesListSlice from "./slices/seriesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     movieList: movieListSlice,
     movieDetail: movieDetailSlice,
     favorites: favoriteListSlice,
+    seriesList: seriesListSlice,
   },
 });

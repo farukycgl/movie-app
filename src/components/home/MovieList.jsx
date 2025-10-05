@@ -30,14 +30,20 @@ const MovieList = ({ selectedGenre }) => {
       <div className="">
         <ul
           className={`grid gap-5  ${
-            status === "rejected" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            status === "rejected"
+              ? "grid-cols-1"
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           }`}
         >
           {status === "pending" ? (
             <Loading />
           ) : status === "fulfilled" ? (
             movies &&
-            movies.map((movie) => (<li><MovieCard key={movie.id} movie={movie} /></li> ))
+            movies.map((movie) => (
+              <li>
+                <MovieCard key={movie.id} movie={movie} />
+              </li>
+            ))
           ) : status === "rejected" ? (
             <LoadingError error={error} />
           ) : null}
