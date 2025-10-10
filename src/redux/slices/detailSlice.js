@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-export const getMovieDetailById = createAsyncThunk(
-  "getMovieDetailById",
+export const getDetailById = createAsyncThunk(
+  "getDetailById",
   async ({ type, id }) => {
     const endpoint =
       type === "movie"
@@ -25,14 +25,14 @@ export const detailSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getMovieDetailById.pending, (state, action) => {
+    builder.addCase(getDetailById.pending, (state, action) => {
       state.status = "loading";
     });
-    builder.addCase(getMovieDetailById.fulfilled, (state, action) => {
+    builder.addCase(getDetailById.fulfilled, (state, action) => {
       state.detail = action.payload;
       state.status = "succeeded";
     });
-    builder.addCase(getMovieDetailById.rejected, (state, action) => {
+    builder.addCase(getDetailById.rejected, (state, action) => {
       state.error = action.error.message;
       state.status = "failed";
     });

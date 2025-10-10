@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieDetailById } from "../redux/slices/detailSlice";
+
 import {
   addToFavorite,
   removeFromFavorite,
 } from "../redux/slices/favoriteListSlice";
 import DetailCard from "../components/detail/DetailCard";
+import { getDetailById } from "../redux/slices/detailSlice";
 
 const Detail = () => {
   const { detail, status, error } = useSelector((store) => store.detail);
@@ -17,7 +18,7 @@ const Detail = () => {
 
   const type = pathname.includes("series") ? "series" : "movie";
   useEffect(() => {
-    dispatch(getMovieDetailById({ type, id }));
+    dispatch(getDetailById({ type, id }));
   }, [id, type, dispatch]);
 
   if (status === "loading")

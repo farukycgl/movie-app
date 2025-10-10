@@ -8,3 +8,5 @@ export const API_MOVIE_POPULAR = "https://api.themoviedb.org/3/movie/popular";
 
 export const API_TV_SERIES_LIST = "https://api.themoviedb.org/3/discover/tv";
 export const API_SERIES_DETAIL = "https://api.themoviedb.org/3/tv";
+
+export const API_SEARCH = "https://api.themoviedb.org/3/search/multi";

@@ -1,30 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { GiFilmProjector } from "react-icons/gi";
-import { BiSearch } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa6";
 import { IoMdHome } from "react-icons/io";
-import { IoIosSearch } from "react-icons/io";
 import { MdPerson } from "react-icons/md";
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import SearchInput from "../components/navbar/SearchInput";
 
-const Navbar = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
-  const [showSearch, setShowSearch] = useState(false);
-  const navigate = useNavigate();
+const Navbar = () => {
   const favoriteCounter = useSelector(
     (store) => store.favorites.favoriteMovies.length
   );
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (query.trim()) {
-      onSearch(query);
-      navigate("/search");
-      setQuery("");
-      setShowSearch(false); //arama yapıldıktan sonra gizle
-    }
-  };
 
   return (
     <div className="flex items-center h-15 md:h-20 px-5 bg-[#E8DFCA] fixed top-0 left-0 w-full z-50">
@@ -56,54 +42,7 @@ const Navbar = ({ onSearch }) => {
 
       {/* Navbar sag kolon */}
       <div className="flex flex-1 items-center justify-end gap-3 md:gap-5">
-        {/* Arama kutusu - Desktop */}
-        <form
-          className="hidden md:flex rounded-4xl border-none p-2 bg-white"
-          onSubmit={handleSubmit}
-        >
-          <input
-            className="outline-none bg-transparent text-m"
-            type="text"
-            placeholder="search.."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button className="cursor-pointer" type="submit">
-            <BiSearch size={25} />
-          </button>
-        </form>
-
-        {/* Arama ikonu - Mobil */}
-        <div className="flex items-center">
-          <button
-            className="md:hidden cursor-pointer"
-            onClick={() => setShowSearch(!showSearch)}
-          >
-            <IoIosSearch size={20} />
-          </button>
-        </div>
-
-        {/* Arama kutusunu göster */}
-        {showSearch && (
-          <form
-            onSubmit={handleSubmit}
-            className="md:hidden absolute top-20 w-full px-5 py-2 flex items-center justify-center rounded-b-lg"
-          >
-            <input
-              type="text"
-              className="outline-none bg-white py-2 pl-2 rounded-l-lg"
-              placeholder="search..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button
-              className="bg-red-700 text-white px-3 py-2 rounded-r-lg cursor-pointer"
-              type="submit"
-            >
-              <IoIosSearch size={25} />
-            </button>
-          </form>
-        )}
+        <SearchInput />
 
         {/* Sag kolon iconlar - Ortak kullanım */}
         <div>

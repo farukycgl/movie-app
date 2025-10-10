@@ -4,6 +4,7 @@ import movieListSlice from "./slices/movieSlice";
 import detailSlice from "./slices/detailSlice";
 import favoriteListSlice from "./slices/favoriteListSlice";
 import seriesListSlice from "./slices/seriesSlice";
+import searchSlice from "./slices/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     detail: detailSlice,
     favorites: favoriteListSlice,
     seriesList: seriesListSlice,
+    search: searchSlice,
   },
 });
